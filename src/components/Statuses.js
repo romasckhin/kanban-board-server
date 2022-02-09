@@ -2,7 +2,7 @@ import React from 'react';
 import StatusItem from "./StatusItem";
 import {Box} from "@mui/material";
 
-const Statuses = ({status,card}) => {
+const Statuses = ({status,card,deleteCard}) => {
 
     return (
         <div>
@@ -13,6 +13,7 @@ const Statuses = ({status,card}) => {
             }}>
             {status.map(el =>
                 <StatusItem
+                    deleteCard={deleteCard}
                     key={el}
                     statuses={el}
                     card={card}

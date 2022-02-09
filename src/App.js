@@ -19,17 +19,35 @@ const App = () => {
            .catch(err => console.log('err', err))
     },[])
 
+    const deleteCard = (id) => {
+        axios({
+            method: "DELETE",
+            url: `http://localhost:5000/cards/${id}`
+        })
+            .then(res => {
+                axios({
+                    method: "GET",
+                    url: "http://localhost:5000/cards"
+                })
+                    .then(res => setCard(res.data))
+                    .catch(err => console.log('err', err))
+            })
+    }
+
     return (
 
         <Container sx={{
             padding: "25px",
-            background: '#e0eee2',
-            boxShadow: "0px 0px 3px 1px"
+            background: '#f2f6f8',
+            boxShadow:" 2px 2px 2px 2px #d9d6c8",
         }} >
 
-            <AddNewCard/>
+            <AddNewCard
+                setCard={setCard}
+            />
 
             <Statuses
+                deleteCard={deleteCard}
                 status={status}
                 card={card}
             />
