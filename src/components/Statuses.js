@@ -28,7 +28,6 @@ const Statuses = ({boards,setBoards}) => {
             }
             return b
         }))
-        event.target.style.boxShadow = 'none'
     }
 
     return (
