@@ -10,6 +10,7 @@ const BoardItems = ({stat,setCurrentBoard,setCurrentItem}) => {
        <>
            {stat.items.map (el =>
                <Cards
+                   key={el.id}
                    stat={stat}
                    el={el}
                    setCurrentBoard={setCurrentBoard}

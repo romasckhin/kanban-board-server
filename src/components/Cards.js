@@ -8,23 +8,6 @@ const Cards = ({el, setCurrentItem, setCurrentBoard, stat}) => {
         setCurrentItem(el)
     }
 
-    // function dragLeaveHandler(event) {
-    //     event.target.style.background = 'white'
-    // }
-    //
-    // function dragEndHandler(event) {
-    //     event.target.style.background = 'white'
-    //
-    // }
-    //
-    // function dragOverHandler(event) {
-    //     event.target.style.background = 'red'
-    //
-    // }
-
-    // function dropHandler(event) {
-    //     event.preventDefault()
-    // }
 
 
     return (
@@ -33,10 +16,6 @@ const Cards = ({el, setCurrentItem, setCurrentBoard, stat}) => {
             marginTop: "10px"
         }}
               onDragStart={event => dragStartHandler(event, stat, el)}
-            // onDragLeave={event => dragLeaveHandler(event)}
-            // onDragEnd={event => dragEndHandler(event)}
-            // onDragOver={event => dragOverHandler(event)}
-            //onDrop={event => dropHandler(event)}
               draggable={true}
         >
             <CardContent>

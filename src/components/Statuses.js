@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import BoardItems from "./BoardItems";
 import {Box} from "@mui/material";
 
-const Statuses = ({boards,setBoards}) => {
+const Statuses = ({boards, setBoards}) => {
 
     const [currentBoard, setCurrentBoard] = useState(null)
     const [currentItem, setCurrentItem] = useState(null)
@@ -31,38 +31,61 @@ const Statuses = ({boards,setBoards}) => {
     }
 
     return (
+        <>
 
-        <Box sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-        }}>
-            {boards.map(stat =>
-                <Box
-                    sx={{
+            <Box sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+            }}>
+                {boards.map(el =>
+                    <Box sx={{
                         minWidth: "250px",
-                        minHeight: "90vh",
-                        background: '#ececf3',
                         display: "flex",
                         alignItems: "center",
                         flexDirection: "column",
-                        padding: "20px 10px",
-                        borderRadius: "5px",
-                        margin: "10px"
-                    }}
-                    onDragOver={event => dragOverHandler(event)}
-                    onDrop={event => dropCardHandler(event, stat)}
-                >
-                    <BoardItems
-                        key={stat.id}
-                        stat={stat}
-                        setCurrentBoard={setCurrentBoard}
-                        setCurrentItem={setCurrentItem}
+                        padding: "0px 10px",
+                        margin: "10px",
+                        fontWeight: "600"
+                    }}>
+                            {el.status}
 
-                    />
-                </Box>
-            )}
-        </Box>
+                    </Box>)}
+            </Box>
+
+            <Box sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+            }}>
+                {boards.map(stat =>
+                    <Box
+                        key={stat.id}
+                        sx={{
+                            minWidth: "250px",
+                            minHeight: "90vh",
+                            background: '#ececf3',
+                            display: "flex",
+                            alignItems: "center",
+                            flexDirection: "column",
+                            padding: "0px 10px",
+                            borderRadius: "5px",
+                            margin: "10px"
+                        }}
+                        onDragOver={event => dragOverHandler(event)}
+                        onDrop={event => dropCardHandler(event, stat)}
+                    >
+                        <BoardItems
+                            key={stat.id}
+                            stat={stat}
+                            setCurrentBoard={setCurrentBoard}
+                            setCurrentItem={setCurrentItem}
+
+                        />
+                    </Box>
+                )}
+            </Box>
+        </>
     );
 };
 
